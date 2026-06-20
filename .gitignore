@@ -1,0 +1,23 @@
+# Dependencias y builds del dashboard web
+web/node_modules/
+web/dist/
+web/dist-ssr/
+
+# Variables de entorno con credenciales (nunca subir)
+.env
+.env.*
+!.env.example
+web/.env
+web/.env.*
+!web/.env.example
+
+# Artefactos de compilación del firmware
+firmware/**/build/
+*.bin
+*.elf
+
+# Sistema operativo / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

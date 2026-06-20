@@ -1,0 +1,128 @@
+/* ProyectoFinal-IoT  Integrantes: Hernández Cuéllar Mauricio y Pacheco Morales Ramiro  Grupo:6CM3 */
+
+:root {
+  --bg: #0e1320;
+  --bg-2: #161d2e;
+  --card: #1b2436;
+  --line: #283149;
+  --text: #e7ecf5;
+  --muted: #8b97ac;
+  --accent: #4f8cff;
+  --water: #38bdf8;
+  --ambient: #fbbf24;
+  --ok: #34d399;
+  --warn: #f59e0b;
+  --bad: #ef4444;
+  --info: #60a5fa;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: radial-gradient(1200px 600px at 80% -10%, #1d2740, var(--bg));
+  color: var(--text);
+}
+
+.app { max-width: 1080px; margin: 0 auto; padding: 20px; }
+
+/* ── Barra de conexión ─────────────────────────────────────────── */
+.conn-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+  padding: 16px 20px; margin-bottom: 20px;
+  background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px;
+}
+.conn-bar__title { display: flex; align-items: center; gap: 14px; }
+.conn-bar__logo { font-size: 28px; color: var(--accent); }
+.conn-bar h1 { margin: 0; font-size: 20px; }
+.conn-bar__sub { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
+.conn-bar__sub code { color: var(--text); }
+.conn-bar__pills { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 12px; border-radius: 999px; font-size: 13px;
+  border: 1px solid var(--line); background: var(--card);
+}
+.pill__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); }
+.pill--ok { color: var(--ok); } .pill--ok .pill__dot { background: var(--ok); }
+.pill--bad { color: var(--bad); } .pill--bad .pill__dot { background: var(--bad); }
+
+/* ── Tarjetas de telemetría ────────────────────────────────────── */
+.cards {
+  display: grid; gap: 14px; margin-bottom: 18px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.card {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 6px;
+}
+.card--hero { grid-row: span 1; }
+.card--mini { padding: 14px 18px; }
+.card__label { color: var(--muted); font-size: 13px; }
+.card__value { font-size: 38px; font-weight: 700; line-height: 1; }
+.card__value small { font-size: 16px; color: var(--muted); margin-left: 4px; }
+.card__value-sm { font-size: 20px; font-weight: 600; }
+.card__hint { color: var(--muted); font-size: 12px; }
+
+.tag {
+  align-self: flex-start; padding: 3px 10px; border-radius: 999px;
+  font-size: 12px; font-weight: 600;
+}
+.tag--ok { background: rgba(52,211,153,.15); color: var(--ok); }
+.tag--info { background: rgba(96,165,250,.15); color: var(--info); }
+.tag--warn { background: rgba(245,158,11,.15); color: var(--warn); }
+.tag--bad { background: rgba(239,68,68,.15); color: var(--bad); }
+
+/* ── Grid gráfica + control ────────────────────────────────────── */
+.app__grid { display: grid; gap: 14px; grid-template-columns: 1.4fr 1fr; }
+
+.chart, .control {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 16px; padding: 18px;
+}
+.chart__head { display: flex; justify-content: space-between; align-items: center; }
+.chart__title, .control__title { margin: 0 0 12px; font-size: 16px; }
+.chart__legend { display: flex; gap: 12px; font-size: 12px; }
+.legend--water { color: var(--water); }
+.legend--ambient { color: var(--ambient); }
+.chart__svg { width: 100%; height: auto; }
+.chart__empty { color: var(--muted); padding: 60px 0; text-align: center; }
+.chart__grid { stroke: var(--line); stroke-width: 1; }
+.chart__axis { fill: var(--muted); font-size: 10px; }
+.chart__line { fill: none; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.chart__line--water { stroke: var(--water); }
+.chart__line--ambient { stroke: var(--ambient); stroke-dasharray: 4 4; }
+
+/* ── Control del actuador ──────────────────────────────────────── */
+.control__row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line);
+}
+.control__row--col { flex-direction: column; align-items: stretch; }
+.control__row:last-of-type { border-bottom: none; }
+.control__label { color: var(--muted); font-size: 14px; }
+.control__hint { color: var(--muted); font-size: 12px; margin: 10px 0 0; }
+
+.seg { display: inline-flex; background: var(--bg-2); border-radius: 10px; padding: 4px; gap: 4px; }
+.seg__btn {
+  border: none; background: transparent; color: var(--text);
+  padding: 7px 14px; border-radius: 8px; cursor: pointer; font-size: 13px;
+}
+.seg__btn.is-active { background: var(--accent); color: #fff; }
+.seg__btn:disabled { opacity: .4; cursor: not-allowed; }
+
+input[type='range'] { width: 100%; accent-color: var(--accent); }
+input[type='range']:disabled { opacity: .4; }
+
+/* ── Pie ───────────────────────────────────────────────────────── */
+.app__footer {
+  margin-top: 22px; text-align: center; color: var(--muted); font-size: 12px;
+}
+
+@media (max-width: 820px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .app__grid { grid-template-columns: 1fr; }
+}
