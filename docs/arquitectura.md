@@ -9,12 +9,12 @@ un actuador físico (ventilador PWM). Un dashboard web se suscribe a la
 telemetría para visualizarla en tiempo real y publica comandos de control.
 
 ```
-   ┌────────────────────┐        MQTT/TLS 8883        ┌─────────────────────┐
-   │   ESP32 (Edge)     │ ─────  publish telemetry ──▶ │                     │
-   │                    │ ◀───── subscribe cmd/#  ───  │   Broker MQTT       │
+   ┌────────────────────┐        MQTT/TLS 8883         ┌─────────────────────┐
+   │   ESP32 (Edge)     │ ─────  publish telemetry ──▶│                     │
+   │                    │ ◀───── subscribe cmd/#  ─── │   Broker MQTT       │
    │  DS18B20 (agua)    │                              │   (HiveMQ Cloud)    │
    │  LM35  (ambiente)  │                              │                     │
-   │  Ventilador PWM ◀──┤  actuador                    │                     │
+   │  Ventilador PWM ◀──┤  actuador                   │                     │
    │  5 LEDs de estado  │                              └─────────┬───────────┘
    └────────────────────┘                                        │
                                                   MQTT sobre WSS 8884 (/mqtt)

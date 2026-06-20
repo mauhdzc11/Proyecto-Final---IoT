@@ -33,9 +33,6 @@
 //    LED Cloud/MQTT                  | GPIO 27      | salida
 //    LED alerta temperatura          | GPIO 33      | salida
 //
-//  NOTA ADC: con WiFi activo solo sirven los canales ADC1 (GPIO 32-39). El
-//  LM35 va en GPIO 34 (input-only, alta impedancia, ideal para analógico).
-//
 //  Árbol de tópicos MQTT (derivado de DEVICE_ID en runtime):
 //    escom/iot/6cm3/{DEVICE_ID}/telemetry   (device -> nube)   QoS 0
 //    escom/iot/6cm3/{DEVICE_ID}/status      (heartbeat / LWT, retained)
@@ -55,7 +52,7 @@
 #include <DallasTemperature.h>
 
 // ╔══════════════════════════════════════════════════════════════════════════╗
-// ║  BLOQUE DE CONFIGURACIÓN — lo ÚNICO que cambia entre unidades              ║
+// ║  BLOQUE DE CONFIGURACIÓN — lo ÚNICO que cambia entre unidades            ║
 // ╚══════════════════════════════════════════════════════════════════════════╝
 
 // --- Identidad del dispositivo (único por unidad) ---------------------------

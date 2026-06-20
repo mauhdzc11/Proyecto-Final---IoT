@@ -45,8 +45,7 @@ static const char* MQTT_USER  = "CAMBIAR_USUARIO";
 static const char* MQTT_PASS  = "CAMBIAR_PASSWORD";
 ```
 
-El SSID y la contraseña del WiFi se compilan dentro del firmware; no hay
-provisioning por BLE ni app. Para cambiar de red, edita `WIFI_SSID` / `WIFI_PASS`
+El SSID y la contraseña del WiFi se compilan dentro del firmware. Para cambiar de red, edita `WIFI_SSID` / `WIFI_PASS`
 y vuelve a subir el sketch.
 
 ## Puesta en marcha
